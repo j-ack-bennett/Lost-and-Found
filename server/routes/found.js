@@ -1,4 +1,5 @@
 const express = require('express')
+const { getTokenDecoder } = require('authenticare/server')
 
 const db = require('../db/found')
 
@@ -15,7 +16,7 @@ router.get('/found', (req, res) => {
     })
 })
 
-router.post('/found', (req, res) => {
+router.post('/found', getTokenDecoder(), (req, res) => {
   db.addFound(req.body.species, req.body.photo)
     .then(() => {
       res.status(200).json({ message: 'OK' })
