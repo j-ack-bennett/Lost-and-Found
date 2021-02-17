@@ -16,7 +16,7 @@ router.get('/lost', (req,res) => {
 })
 
 router.post('/lost', (req,res) => {
-  db.addLost(req.body.name, req.body.species, req.body.photo)
+  db.addLost(req.body.name, req.body.species, req.body.photo, )
     .then(() => {
       res.status(200).json({ message: 'OK' })
       return null
@@ -26,3 +26,5 @@ router.post('/lost', (req,res) => {
 			res.status(500).json({ message: 'Something went wrong' })
 		})
 })
+
+module.exports = router
