@@ -17,8 +17,7 @@ router.get('/', (req,res) => {
 })
 
 router.post('/', getTokenDecoder(), (req,res) => {
-  // console.log(req.user)
-  db.addLost(req.body.name, req.body.species, req.body.photo)
+  db.addLost(req.body.name, req.body.species, req.body.photo, req.user.id)
     .then(() => {
       res.status(200).json({ message: 'OK' })
       return null

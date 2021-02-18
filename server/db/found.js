@@ -1,26 +1,22 @@
 const connection = require('./connection')
 
-function getFound(db= connection){
+function getFound(db = connection) {
   return db('found')
-  .select()
+    .select()
 }
-function getFoundPetsAndUsers(db=connection) {
+function getFoundPetsAndUsers(db = connection) {
   return db('users')
-.join('found', 'found.user_id', 'users.id')
-.select()
+    .join('found', 'found.user_id', 'users.id')
+    .select()
 }
 
-function addFound(species, photo, db=connection) {
+function addFound(species, photo, user_id, db = connection) {
   return db('found')
-  .insert({species: species, photo: photo})
+    .insert({ species: species, photo: photo, user_id: user_id })
 }
-
-
-
 
 module.exports = {
   getFound,
   getFoundPetsAndUsers,
   addFound
-
 }
