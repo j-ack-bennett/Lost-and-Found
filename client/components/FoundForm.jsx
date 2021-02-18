@@ -13,7 +13,7 @@ function FoundPet (props) {
   })
 
   useEffect(() => {
-    props.dispatch(loginError(''))
+    // props.dispatch(loginError(''))
   }, [])
 
   const handleChange = (e) => {

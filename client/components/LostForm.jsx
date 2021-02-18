@@ -14,7 +14,7 @@ function LostPet (props) {
   })
 
   useEffect(() => {
-    props.dispatch(loginError(''))
+    // props.dispatch(loginError(''))
   }, [])
 
   const handleChange = (e) => {
