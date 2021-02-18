@@ -1,4 +1,5 @@
 const express = require('express')
+const { getTokenDecoder } = require('authenticare/server')
 
 const db = require('../db/lost')
 
@@ -15,8 +16,9 @@ router.get('/lost', (req,res) => {
 		})
 })
 
-router.post('/lost', (req,res) => {
-  db.addLost(req.body.name, req.body.species, req.body.photo, )
+router.post('/lost', getTokenDecoder(), (req,res) => {
+  // console.log(req.user)
+  db.addLost(req.body.name, req.body.species, req.body.photo)
     .then(() => {
       res.status(200).json({ message: 'OK' })
       return null

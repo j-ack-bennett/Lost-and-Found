@@ -16,6 +16,7 @@ export function getLost() {
 export function addLost(name, species, photo) {
   return request
     .post(rootUrl)
+    .set(acceptJsonHeader)
     .set(getAuthorizationHeader())
     .send(name, species, photo)
     .then(res => res.body.animals)
@@ -24,9 +25,8 @@ export function addLost(name, species, photo) {
 
 function logError (err) {
   if (err.message === 'Forbidden') {
-    throw new Error('Only the user who added the fruit may update and delete it')
+    throw new Error('Only the user who added the animal may update and delete it')
   } else {
-    // eslint-disable-next-line no-console
     console.error(
       'Error consuming the API (in client/apis/lost.js):',
       err.message
