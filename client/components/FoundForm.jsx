@@ -24,14 +24,10 @@ function FoundPet (props) {
       }
     })
   }
-
-
+  
   const handleSubmit = (e) => {
     e.preventDefault()
-
     props.dispatch(saveFound(formData))
-    setFormData({photo:""})
-
   }
 
   return (
