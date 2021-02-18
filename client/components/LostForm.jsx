@@ -35,10 +35,8 @@ function LostPet (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     props.dispatch(saveLost(formData))
-    setFormData({photo:""})
-
+    e.target.reset()
   }
 
   return (
@@ -48,7 +46,6 @@ function LostPet (props) {
       <h1 className="title is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
       {props.auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
-      
       
       <div className="columns">
         <label className="column is-6 label is-large has-text-centered">Name

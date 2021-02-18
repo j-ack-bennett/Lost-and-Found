@@ -27,7 +27,7 @@ function FoundPet (props) {
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       }
     })
   }
@@ -35,6 +35,7 @@ function FoundPet (props) {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.dispatch(saveFound(formData))
+    e.target.reset()
   }
 
   return (
@@ -42,10 +43,7 @@ function FoundPet (props) {
       {auth.isAuthenticated && 
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have found</h1>
-      <hr />
-      {props.auth.errorMessage && <span className="has-text-danger is-large">{props.auth.errorMessage}</span>}
-      
-      
+      <hr /> 
       <div className="columns">
         <label className="column is-6 label is-large has-text-centered">Species
           <input required className="input is-large has-text-centered is-fullwidth" placeholder="Species" onChange={(e) => handleChange(e)} type="text" name="species"/>
