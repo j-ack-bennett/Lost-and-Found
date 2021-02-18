@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchFound } from '../actions/found'
@@ -8,8 +8,8 @@ function FoundPets (props) {
   const [filterFound, setFilterFound] = useState([])
 
   useEffect(() => {
-    props.dispatch(fetchFound())   
-  }, []);
+    props.dispatch(fetchFound())
+  }, [])
 
   useEffect(() => {
     setFilterFound (props.foundPets)
@@ -49,7 +49,6 @@ function FoundPets (props) {
   return {
     foundPets: globalState.foundPets
   }
-};       
-
+}   
 
 export default connect(mapStateToProps)(FoundPets)

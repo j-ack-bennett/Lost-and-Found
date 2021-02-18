@@ -1,0 +1,40 @@
+body {
+  background:tan;
+  // justify-content: center;
+}
+
+// .Register-form-box {
+//   display:flex;
+//   flex-direction: column;
+//   widows: 400px;
+//   width: fit-content;
+//   height:auto;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 25px;
+// }
+
+.title-is-2 {
+font-size: 30px;
+}
+
+
+
+.lost-form {
+  background: white;
+  display:flex;
+  flex-direction: row;
+  // width: fit-content;
+  // height:auto;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border: 5px solid rgb(51, 184, 11);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+
+.container has-text-centered {
+  display:flex;
+}

@@ -1,6 +1,5 @@
 import { getFound, addFound } from '../apis/found'
 
-
 export const RECEIVE_FOUND_PETS = 'RECEIVE_FOUND_PETS'
 export const ADD_FOUND_PET = 'ADD_FOUND_PET'
 
@@ -18,7 +17,6 @@ export function addNewFound (newFound) {
   }
 }
  
-
 export function fetchFound () {
   return dispatch => {
     return getFound()
@@ -38,4 +36,3 @@ export function saveFound (found) {
     })
   }
 }
-

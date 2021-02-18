@@ -5,8 +5,10 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
-import LostPet from './LostForm'
-import FoundPet from './FoundForm'
+import LostPets from './LostPets'
+import LostForm from './LostForm'
+import FoundPets from './FoundPets'
+import FoundForm from './FoundForm'
 
 import { checkAuth } from '../actions/auth'
 
@@ -32,31 +34,28 @@ function App (props) {
         </div>
 
         <div className=''>
-          {!auth.isAuthenticated &&  <>
-          <Route exact path="/" component={Login} />
-          <Route path="/register" component={Register}/></>}
+          {!auth.isAuthenticated &&  
+          <>
+          <Route exact path="/" component={LostPets} />
+          <Route path="/register" component={Register}/>
+          </>
+          }
         
         </div>
           <Route path="/login" component={Login} />
         <>
-          <Route path="/Found" exact component={FoundPet}/>
-          <Route path="/Lost" exact component={LostPet}/>
+          <Route path="/Found" exact component={FoundForm}/>
+          <Route path="/Lost" exact component={LostForm}/>
         </>
       </div>
     </Router>
   )
-  
 }
-
-
 
 const mapStateToProps = (globalState) => {
   return {
     auth: globalState.auth
   }
 }
-
-
-
 
 export default connect(mapStateToProps)(App)

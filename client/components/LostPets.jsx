@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-
 import { fetchLost } from '../actions/lost'
+import { checkAuth } from '../actions/auth'
 
-function LostPets (props) {
+function LostPets(props) {
+
+  const { auth } = props
 
   const [filterLost, setFilterLost] = useState([])
 
@@ -27,33 +29,43 @@ function LostPets (props) {
   }
 
   useEffect(() => {
-    props.dispatch(fetchLost());
-  }, []);
+    const confirmSuccess = () => { }
+    props.dispatch(fetchLost())
+    props.dispatch(checkAuth(confirmSuccess))
+  }, [])
 
-  console.log(props)
+  console.log(props.lostPets[0])
   return (
     <div>
       <button onClick={() => clickHandler("cat")}>Cats</button>
       <button onClick={() => clickHandler("dog")}>Dogs</button>
       <button onClick={() => clickHandler("")}>All</button>
+
       {filterLost.map(animal => (
         <div key={animal.id}>
+
           <img className="lostPetImg" src={animal.photo} />
-          <div>
+          <div >
             <h3>{animal.name}</h3>
-            {/* <h3>{animal.username}</h3> */}
+
+            {auth.isAuthenticated &&
+              <div>
+                <h3>{animal.username}</h3>
+                <h3>{animal.email_address}</h3>
+                <h3>{animal.contact_details}</h3>
+              </div>}
           </div>
-        </div> 
-      ))}        
+        </div>
+      ))}
     </div>
   )
 }
 
-   const mapStateToProps = (globalState) => {
+const mapStateToProps = (globalState) => {
   return {
-    lostPets: globalState.lostPets
+    lostPets: globalState.lostPets,
+    auth: globalState.auth
   }
-};       
-
+}
 
 export default connect(mapStateToProps)(LostPets)

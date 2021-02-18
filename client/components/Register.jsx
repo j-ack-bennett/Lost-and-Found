@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
-
 import {loginError, registerUserRequest} from '../actions/auth'
 
 function Register (props) {
@@ -36,7 +35,7 @@ function Register (props) {
     if (confirm_password != password){
       dispatch(loginError("Passwords don't match"))
     } else {
-      const confirmSuccess = () => { props.history.push('/') }
+      const confirmSuccess = () => { props.history.push('/lost') }
       const userInfo = { ...formData }
       delete userInfo.confirm_password
       dispatch(registerUserRequest(userInfo, confirmSuccess))

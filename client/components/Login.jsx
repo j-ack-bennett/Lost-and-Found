@@ -25,7 +25,7 @@ function Login (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const confirmSuccess = () => { props.history.push('/') }
+    const confirmSuccess = () => { props.history.push('/lost') }
     dispatch(loginUser(formData, confirmSuccess))
   }
     
