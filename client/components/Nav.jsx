@@ -32,7 +32,11 @@ function Nav (props) {
           <div className="navbar-end">
             { auth.isAuthenticated
               ? (
+                <>
                   <Link to='/' className="navbar-item is-large" onClick={() => logout()}>Logout</Link>
+                  <Link onClick={toggleBurger} className="navbar-item is-large" to='/lost'>Lost</Link>
+                  <Link onClick={toggleBurger} className="navbar-item" to='/found'>Found</Link>
+                </>
                 )
               : (
                 <>

@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
+import LostPet from './Lost'
+import FoundPet from './Found'
 
 import { checkAuth } from '../actions/auth'
 
@@ -35,17 +37,28 @@ function App (props) {
           }
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+        
         </div>
-
+         
+        <>
+          <Route path="/Found" exact component={FoundPet}/>
+          <Route path="/Lost" exact component={LostPet}/>
+        </>
       </div>
     </Router>
   )
+  
 }
+
+
 
 const mapStateToProps = (globalState) => {
   return {
     auth: globalState.auth
   }
 }
+
+
+
 
 export default connect(mapStateToProps)(App)

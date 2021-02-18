@@ -3,13 +3,13 @@ import {connect} from 'react-redux'
 
 import {loginError, registerUserRequest} from '../actions/auth'
 
-function Foundpet (props) {
-  const { found, dispatch } = props
+function FoundPet (props) {
+  const { found, dispatch } = props     //?? what should be in props?
   
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(
+    {
     species: '',
     photo_url: '',
-
   })
 
   useEffect(() => {
@@ -25,24 +25,20 @@ function Foundpet (props) {
     })
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    e.target.reset()
 
-    let { species, photo_url } = formData
+    props.dispatch(addFoundPet(formData))
+    setFormData({photo_url:""})
 
-  //   if ()=> {
-  //     const confirmSuccess = () => { props.history.push('/found') }
-  //     const photo_url  = { ...formData }
-  //     dispatch(registerUserRequest(userInfo, confirmSuccess))
-    
-  // }
+  }
 
   return (
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have found</h1>
       <hr />
-      {auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
+      {props.auth.errorMessage && <span className="has-text-danger is-large">{props.auth.errorMessage}</span>}
       
       
       <div className="columns">
@@ -62,7 +58,7 @@ function Foundpet (props) {
 
 const mapStateToProps = (globalState) => {
   return {
-    found: globalState.found
+    auth: globalState.auth
   }
 }
 
