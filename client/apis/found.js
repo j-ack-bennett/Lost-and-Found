@@ -7,7 +7,7 @@ const rootUrl = 'api/v1/found'
 
 export function getFound() {
   return request
-    .get(rootURL)
+    .get(rootUrl)
     .set(acceptJsonHeader)
     .then(res => res.body.animals)
     .catch(logError)

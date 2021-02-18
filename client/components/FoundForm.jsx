@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {loginError, registerUserRequest} from '../actions/auth'
 import { saveFound } from '../actions/found'
 
+import FoundPets from './FoundPets'
 
 function FoundPet (props) {
   
@@ -51,6 +52,9 @@ function FoundPet (props) {
       
       <input className="button is-success is-large is-fullwidth" value="Found" type="submit" />
     </form>
+    <div>
+          <FoundPets />
+      </div>
 
     
     </>
