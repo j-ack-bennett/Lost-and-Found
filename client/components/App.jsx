@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
-import LostPet from './Lost'
-import FoundPet from './Found'
+import LostPet from './LostForm'
+import FoundPet from './FoundForm'
 
 import { checkAuth } from '../actions/auth'
 
