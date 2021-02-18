@@ -41,9 +41,10 @@ function LostPet (props) {
 
   return (
     <>
+    <div className= "lost-form"> 
     {auth.isAuthenticated &&
-    <form className="Register form box" onSubmit={handleSubmit}>
-      <h1 className="title is-2">Please submit a photo of the cat or dog you have lost</h1>
+    <form className="Register-form-box" onSubmit={handleSubmit}>
+      <h1 className="title-is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
       {props.auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
       
@@ -64,6 +65,7 @@ function LostPet (props) {
       <input className="button is-success is-large is-fullwidth" value="Lost" type="submit" />
     </form>
     }
+    </div>
 
       <div>
           <LostPets />
