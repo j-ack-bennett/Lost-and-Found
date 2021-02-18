@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 
-import {loginError, registerUserRequest} from '../actions/auth'
+// import {loginError, registerUserRequest} from '../actions/auth'
 import { saveLost } from '../actions/lost'
 
 import LostPets from "./LostPets"
 
+import { checkAuth } from '../actions/auth'
+
 function LostPet (props) {
+
+  const { auth } = props
   
   const [formData, setFormData] = useState(
     {
@@ -16,7 +20,8 @@ function LostPet (props) {
   })
 
   useEffect(() => {
-    // props.dispatch(loginError(''))
+    const confirmSuccess = () => { }
+    props.dispatch(checkAuth(confirmSuccess))
   }, [])
 
   const handleChange = (e) => {
@@ -30,19 +35,17 @@ function LostPet (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     props.dispatch(saveLost(formData))
-    setFormData({photo:""})
-
+    e.target.reset()
   }
 
   return (
     <>
+    {auth.isAuthenticated &&
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
       {props.auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
-      
       
       <div className="columns">
         <label className="column is-6 label is-large has-text-centered">Name
@@ -60,6 +63,8 @@ function LostPet (props) {
       <br />
       <input className="button is-success is-large is-fullwidth" value="Lost" type="submit" />
     </form>
+    }
+
       <div>
           <LostPets />
       </div>

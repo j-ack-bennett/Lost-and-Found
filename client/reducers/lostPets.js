@@ -7,7 +7,7 @@ const lostPets = (state = initialState, action) => {
     case RECEIVE_LOST_PETS:
       return action.lost
     case ADD_LOST_PET:
-        return [...state, action.found]
+        return [...state, action.lost]
     default:
       return state
   }
