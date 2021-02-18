@@ -11,7 +11,7 @@ export function setFounds (found) {
   }
 }
 
-export function addFound (newFound) {
+export function addNewFound (newFound) {
   return {
     type: ADD_FOUND_PET,
     found: newFound

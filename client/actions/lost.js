@@ -11,7 +11,7 @@ export function setLosts (lost) {
   }
 }
 
-export function addLost (newLost) {
+export function addNewLost (newLost) {
   return {
     type: ADD_LOST_PET,
     lost: newLost
@@ -30,9 +30,9 @@ export function fetchLost () {
 
 export function saveLost (lost) {
   return dispatch => {
-    return addNewLost(lost)
+    return addLost(lost)
     .then(() => {
-      dispatch(addLost(lost))
+      dispatch(addNewLost(lost))
       return null
     })
   }
