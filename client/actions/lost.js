@@ -1,6 +1,5 @@
 import { getLost, addLost } from '../apis/lost'
 
-
 export const RECEIVE_LOST_PETS = 'RECEIVE_LOST_PETS'
 export const ADD_LOST_PET = 'ADD_LOST_PET'
 

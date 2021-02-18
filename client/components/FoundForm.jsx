@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 
-import {loginError, registerUserRequest} from '../actions/auth'
+// import {loginError, registerUserRequest} from '../actions/auth'
 import { saveFound } from '../actions/found'
 
 import FoundPets from './FoundPets'
 import { checkAuth } from '../actions/auth'
 
-
-
 function FoundPet (props) {
+
   const { auth } = props  
+
   const [formData, setFormData] = useState(
     {
     species: '',
@@ -57,11 +57,10 @@ function FoundPet (props) {
       <input className="button is-success is-large is-fullwidth" value="Found" type="submit" />
     </form>
     }
-    <div>
+
+      <div>
           <FoundPets />
       </div>
-
-    
     </>
   )
 }

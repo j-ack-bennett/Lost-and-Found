@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 
-import {loginError, registerUserRequest} from '../actions/auth'
+// import {loginError, registerUserRequest} from '../actions/auth'
 import { saveLost } from '../actions/lost'
 
 import LostPets from "./LostPets"
