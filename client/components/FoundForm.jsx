@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {loginError, registerUserRequest} from '../actions/auth'
 import { saveFound } from '../actions/found'
 
+
 function FoundPet (props) {
   
   const [formData, setFormData] = useState(
@@ -31,6 +32,7 @@ function FoundPet (props) {
   }
 
   return (
+    <>
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have found</h1>
       <hr />
@@ -49,6 +51,9 @@ function FoundPet (props) {
       
       <input className="button is-success is-large is-fullwidth" value="Found" type="submit" />
     </form>
+
+    
+    </>
   )
 }
 
