@@ -13,7 +13,7 @@ function LostPets (props) {
   return (
     <div>
       {props.lostPets.map(animal => (
-        <div>
+        <div className="img-container">
           <img className="lostPetImg" key={animal.id} src={animal.photo} />
           <div>
             <h3>{animal.name}</h3>
