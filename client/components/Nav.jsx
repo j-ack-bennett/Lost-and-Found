@@ -38,6 +38,12 @@ function Nav (props) {
                 <>
                   <Link onClick={toggleBurger} className="navbar-item is-large" to='/login'>Login</Link>
                   <Link onClick={toggleBurger} className="navbar-item" to='/register'>Register</Link>
+
+                  <Link onClick={toggleBurger} className="navbar-item is-large" to='/lost'>Lost</Link>
+                  <Link onClick={toggleBurger} className="navbar-item" to='/found'>Found</Link>
+
+
+
                 </>
               )
             }
