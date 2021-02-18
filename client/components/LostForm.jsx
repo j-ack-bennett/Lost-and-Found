@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 
 import {loginError, registerUserRequest} from '../actions/auth'
+import { saveLost } from '../actions/lost'
 
 import LostPets from "./LostPets"
 
 function LostPet (props) {
-  const { lost, dispatch } = props     //?? what should be in props?
   
   const [formData, setFormData] = useState(
     {
+    name: '',
     species: '',
-    photo_url: '',
+    photo: '',
   })
 
   useEffect(() => {
-    dispatch(loginError(''))
+    // props.dispatch(loginError(''))
   }, [])
 
   const handleChange = (e) => {
@@ -27,11 +28,11 @@ function LostPet (props) {
     })
   }
 
-  const handleSubmit = (e) => {return
+  const handleSubmit = (e) => {
     e.preventDefault()
 
-    props.dispatch(addLostPet(formData))
-    setFormData({photo_url:""})
+    props.dispatch(saveLost(formData))
+    setFormData({photo:""})
 
   }
 
@@ -40,15 +41,20 @@ function LostPet (props) {
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
-      {props.auth.errorMessage && <span className="has-text-danger is-large">{props.auth.errorMessage}</span>}
+      {props.auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
       
       
       <div className="columns">
-        <label className="column is-6 label is-large has-text-centered">species
-          <input required className="input is-large has-text-centered is-fullwidth" placeholder="Species" type="text" name="species" onChange={handleChange} value={formData.species}/>
+        <label className="column is-6 label is-large has-text-centered">Name
+          <input required className="input is-large has-text-centered is-fullwidth" placeholder="Name" onChange={(e) => handleChange(e)} type="text" name="name" />
         </label>
+
+        <label className="column is-6 label is-large has-text-centered">Species
+          <input required className="input is-large has-text-centered is-fullwidth" placeholder="Species" onChange={(e) => handleChange(e)} type="text" name="species" />
+        </label>
+
         <label className="column is-6 label is-large has-text-centered">URL for a photo
-          <input required className="input is-large has-text-centered is-fullwidth" placeholder="URL for a photo" type="text" name="photo_url" onChange={handleChange} value={formData.photo_url}/>
+          <input required className="input is-large has-text-centered is-fullwidth" placeholder="URL for a photo" onChange={(e) => handleChange(e)} type="text" name="photo" />
         </label>
         </div>
       <br />

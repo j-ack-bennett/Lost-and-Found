@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
-import LostPet from './Lost'
-import FoundPet from './Found'
+import LostPet from './LostForm'
+import FoundPet from './FoundForm'
 
 import { checkAuth } from '../actions/auth'
 
@@ -15,7 +15,7 @@ function App (props) {
 
   useEffect(() => {
     const confirmSuccess = () => { }
-    dispatch(checkAuth(confirmSuccess))
+    props.dispatch(checkAuth(confirmSuccess))
   }, [])
 
   return (
@@ -32,14 +32,12 @@ function App (props) {
         </div>
 
         <div className=''>
-          {!auth.isAuthenticated &&
-            <Route exact path="/" component={Login} />
-          }
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          {!auth.isAuthenticated &&  <>
+          <Route exact path="/" component={Login} />
+          <Route path="/register" component={Register}/></>}
         
         </div>
-         
+          <Route path="/login" component={Login} />
         <>
           <Route path="/Found" exact component={FoundPet}/>
           <Route path="/Lost" exact component={LostPet}/>

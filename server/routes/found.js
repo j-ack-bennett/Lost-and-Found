@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', getTokenDecoder(), (req, res) => {
-  db.addFound(req.body.species, req.body.photo)
+  db.addFound(req.body.species, req.body.photo, req.user.id)
     .then(() => {
       res.status(200).json({ message: 'OK' })
       return null
