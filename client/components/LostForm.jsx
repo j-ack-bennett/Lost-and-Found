@@ -6,7 +6,11 @@ import { saveLost } from '../actions/lost'
 
 import LostPets from "./LostPets"
 
+import { checkAuth } from '../actions/auth'
+
 function LostPet (props) {
+
+  const { auth } = props
   
   const [formData, setFormData] = useState(
     {
@@ -16,7 +20,8 @@ function LostPet (props) {
   })
 
   useEffect(() => {
-    // props.dispatch(loginError(''))
+    const confirmSuccess = () => { }
+    props.dispatch(checkAuth(confirmSuccess))
   }, [])
 
   const handleChange = (e) => {
@@ -38,6 +43,7 @@ function LostPet (props) {
 
   return (
     <>
+    {auth.isAuthenticated &&
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
@@ -60,6 +66,8 @@ function LostPet (props) {
       <br />
       <input className="button is-success is-large is-fullwidth" value="Lost" type="submit" />
     </form>
+    }
+
       <div>
           <LostPets />
       </div>
