@@ -10,7 +10,7 @@ exports.seed = function (knex) {
         [
           {
             id: 1,
-            username: 'admin',
+            username: 'Bobby',
             password: 'Krang',
             email_address: 'hello@devacademy.co.nz',
             contact_details: 'Ring the bell ;)',
