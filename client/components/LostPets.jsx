@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-
 import { fetchLost } from '../actions/lost'
 
 function LostPets (props) {
@@ -17,7 +16,7 @@ function LostPets (props) {
           <img className="lostPetImg" key={animal.id} src={animal.photo} />
           <div>
             <h3>{animal.name}</h3>
-            {/* <h3>{animal.username}</h3> */}
+            <h3>{animal.username}</h3>
           </div>
         </div> 
       ))}        
