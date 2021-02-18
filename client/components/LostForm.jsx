@@ -8,6 +8,7 @@ function LostPet (props) {
   
   const [formData, setFormData] = useState(
     {
+    name: '',
     species: '',
     photo: '',
   })
@@ -37,13 +38,18 @@ function LostPet (props) {
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
-      {props.auth.errorMessage && <span className="has-text-danger is-large">{props.auth.errorMessage}</span>}
+      {props.auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
       
       
       <div className="columns">
-        <label className="column is-6 label is-large has-text-centered">species
+        <label className="column is-6 label is-large has-text-centered">Name
+          <input required className="input is-large has-text-centered is-fullwidth" placeholder="Name" onChange={(e) => handleChange(e)} type="text" name="name" />
+        </label>
+
+        <label className="column is-6 label is-large has-text-centered">Species
           <input required className="input is-large has-text-centered is-fullwidth" placeholder="Species" onChange={(e) => handleChange(e)} type="text" name="species" />
         </label>
+
         <label className="column is-6 label is-large has-text-centered">URL for a photo
           <input required className="input is-large has-text-centered is-fullwidth" placeholder="URL for a photo" onChange={(e) => handleChange(e)} type="text" name="photo" />
         </label>
