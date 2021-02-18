@@ -2,9 +2,9 @@
 
 
 export const RECEIVE_FOUND_PETS = 'RECEIVE_FOUND_PETS'
-export const ADD_FOUND_PETS = ADD_FOUND_PETS
+export const ADD_FOUND_PET = 'ADD_FOUND_PET'
 
-export function setFound (found) {
+export function setFounds (found) {
   return {
     type: RECEIVE_FOUND_PETS,
     found: found
@@ -13,7 +13,7 @@ export function setFound (found) {
 
 export function addFound (newFound) {
   return {
-    type: ADD_FOUND_PETS,
+    type: ADD_FOUND_PET,
     found: newFound
   }
 }
@@ -29,10 +29,10 @@ export function fetchFound () {
   }
 }
 
-export function saveFound (newFound) {
+export function saveFound (found) {
   return dispatch => {
-    return newFound
-    .then(res => {
+    return addNewFound(found)
+    .then(() => {
       dispatch(addFound(found))
       return null
     })
