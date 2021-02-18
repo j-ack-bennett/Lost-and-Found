@@ -7,6 +7,27 @@ function LostPets(props) {
 
   const { auth } = props
 
+  const [filterLost, setFilterLost] = useState([])
+
+  useEffect(() => {
+    props.dispatch(fetchLost())   
+  }, []);
+
+  useEffect(() => {
+    setFilterLost (props.lostPets)
+  }, [props.lostPets])
+
+  const clickHandler = (filter) => {
+    if(filter) {
+      const filteredList = props.lostPets.filter(animal => {
+        return animal.species == filter
+      })
+      setFilterLost(filteredList)
+    } else {
+      setFilterLost(props.lostPets)
+    }
+  }
+
   useEffect(() => {
     const confirmSuccess = () => { }
     props.dispatch(fetchLost())
@@ -16,8 +37,11 @@ function LostPets(props) {
   console.log(props.lostPets[0])
   return (
     <div>
-      {props.lostPets.map(animal => (
+      <button onClick={() => clickHandler("cat")}>Cats</button>
+      <button onClick={() => clickHandler("dog")}>Dogs</button>
+      <button onClick={() => clickHandler("")}>All</button>
 
+      {filterLost.map(animal => (
         <div key={animal.id}>
 
           <img className="lostPetImg" src={animal.photo} />
