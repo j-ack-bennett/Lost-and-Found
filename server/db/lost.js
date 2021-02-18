@@ -9,7 +9,7 @@ function getLost(db = connection){
 function getLostPetsAndUsers(db = connection) {
   return db('users') 
 .join('lost', 'lost.user_id', 'users.id')
-.select('user_id', 'lost.id', 'lost.name', 'lost.photo','users.username', 'users.email_address', 'users.contact_details')
+.select('user_id', 'lost.id', 'lost.name', 'lost.photo','users.username', 'users.email_address', 'users.contact_details', 'lost.species')
 .debug()
 }
 

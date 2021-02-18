@@ -7,7 +7,6 @@ import Register from './Register'
 import Nav from './Nav'
 import LostPets from './LostPets'
 import LostForm from './LostForm'
-import FoundPets from './FoundPets'
 import FoundForm from './FoundForm'
 
 import { checkAuth } from '../actions/auth'

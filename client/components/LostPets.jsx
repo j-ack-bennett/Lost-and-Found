@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { fetchLost } from '../actions/lost'
-import { checkAuth } from '../actions/auth'
 
 function LostPets(props) {
 
@@ -12,6 +11,7 @@ function LostPets(props) {
   useEffect(() => {
     props.dispatch(fetchLost())   
   }, []);
+  
 
   useEffect(() => {
     setFilterLost (props.lostPets)
@@ -20,21 +20,18 @@ function LostPets(props) {
   const clickHandler = (filter) => {
     if(filter) {
       const filteredList = props.lostPets.filter(animal => {
+        console.log(animal.species, filter)
         return animal.species == filter
       })
+      console.log(filteredList)
       setFilterLost(filteredList)
     } else {
       setFilterLost(props.lostPets)
     }
   }
+  
 
-  useEffect(() => {
-    const confirmSuccess = () => { }
-    props.dispatch(fetchLost())
-    props.dispatch(checkAuth(confirmSuccess))
-  }, [])
-
-  console.log(props.lostPets[0])
+  console.log(props.lostPets)
   return (
     <div>
       <button onClick={() => clickHandler("cat")}>Cats</button>
