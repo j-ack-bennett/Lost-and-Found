@@ -4,7 +4,7 @@ import { getFound, addFound } from '../apis/found'
 export const RECEIVE_FOUND_PETS = 'RECEIVE_FOUND_PETS'
 export const ADD_FOUND_PET = 'ADD_FOUND_PET'
 
-export function setFounds (found) {
+export function setFound (found) {
   return {
     type: RECEIVE_FOUND_PETS,
     found: found

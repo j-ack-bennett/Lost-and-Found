@@ -4,7 +4,7 @@ import { getLost, addLost } from '../apis/lost'
 export const RECEIVE_LOST_PETS = 'RECEIVE_LOST_PETS'
 export const ADD_LOST_PET = 'ADD_LOST_PET'
 
-export function setLosts (lost) {
+export function setLost (lost) {
   return {
     type: RECEIVE_LOST_PETS,
     lost: lost
