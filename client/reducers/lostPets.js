@@ -1,15 +1,16 @@
-import { RECEIVE_FOUND_PETS } from "../actions/found"
-import { RECIEVE_LOST_PETS } from "../actions/lost"
+import { RECEIVE_LOST_PETS, ADD_LOST_PET } from "../actions/lost"
 
 const initialState = []
 
-const reducer = (state = initialState, action) => {
+const lostPets = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_LOST_PETS:
       return action.lost
+    case ADD_LOST_PET:
+        return [...state, action.found]
     default:
       return state
   }
 }
 
-export default reducer
+export default lostPets
