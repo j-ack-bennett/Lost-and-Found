@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import {loginError, registerUserRequest} from '../actions/auth'
 import { saveLost } from '../actions/lost'
 
+import LostPets from "./LostPets"
+
 function LostPet (props) {
   
   const [formData, setFormData] = useState(
@@ -35,6 +37,7 @@ function LostPet (props) {
   }
 
   return (
+    <>
     <form className="Register form box" onSubmit={handleSubmit}>
       <h1 className="title is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
@@ -53,10 +56,14 @@ function LostPet (props) {
         <label className="column is-6 label is-large has-text-centered">URL for a photo
           <input required className="input is-large has-text-centered is-fullwidth" placeholder="URL for a photo" onChange={(e) => handleChange(e)} type="text" name="photo" />
         </label>
-      </div>
+        </div>
       <br />
       <input className="button is-success is-large is-fullwidth" value="Lost" type="submit" />
     </form>
+      <div>
+          <LostPets />
+      </div>
+    </>
   )
 }
 
