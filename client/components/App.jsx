@@ -15,7 +15,7 @@ function App (props) {
 
   useEffect(() => {
     const confirmSuccess = () => { }
-    dispatch(checkAuth(confirmSuccess))
+    props.dispatch(checkAuth(confirmSuccess))
   }, [])
 
   return (
@@ -32,14 +32,12 @@ function App (props) {
         </div>
 
         <div className=''>
-          {!auth.isAuthenticated &&
-            <Route exact path="/" component={Login} />
-          }
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          {!auth.isAuthenticated &&  <>
+          <Route exact path="/" component={Login} />
+          <Route path="/register" component={Register}/></>}
         
         </div>
-         
+          <Route path="/login" component={Login} />
         <>
           <Route path="/Found" exact component={FoundPet}/>
           <Route path="/Lost" exact component={LostPet}/>

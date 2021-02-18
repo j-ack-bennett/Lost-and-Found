@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 
-import {loginError, registerUserRequest} from '../actions/auth'
+import {loginError, } from '../actions/auth'
 
 function FoundPet (props) {
   const { found, dispatch } = props     //?? what should be in props?
