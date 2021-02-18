@@ -29,3 +29,13 @@ export function fetchFound () {
   }
 }
 
+export function saveFound (newFound) {
+  return dispatch => {
+    return newFound
+    .then(res => {
+      dispatch(addFound(found))
+      return null
+    })
+  }
+}
+
