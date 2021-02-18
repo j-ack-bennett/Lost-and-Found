@@ -5,7 +5,7 @@ const db = require('../db/lost')
 
 const router = express.Router()
 
-router.get('/lost', (req,res) => {
+router.get('/', (req,res) => {
   db.getLost()
     .then(animals => {
       res.json({animals})
@@ -16,7 +16,7 @@ router.get('/lost', (req,res) => {
 		})
 })
 
-router.post('/lost', getTokenDecoder(), (req,res) => {
+router.post('/', getTokenDecoder(), (req,res) => {
   // console.log(req.user)
   db.addLost(req.body.name, req.body.species, req.body.photo)
     .then(() => {

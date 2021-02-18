@@ -5,7 +5,7 @@ const db = require('../db/found')
 
 const router = express.Router()
 
-router.get('/found', (req, res) => {
+router.get('/', (req, res) => {
   db.getFound()
     .then(animals => {
       res.json({ animals })
@@ -16,7 +16,7 @@ router.get('/found', (req, res) => {
     })
 })
 
-router.post('/found', getTokenDecoder(), (req, res) => {
+router.post('/', getTokenDecoder(), (req, res) => {
   db.addFound(req.body.species, req.body.photo)
     .then(() => {
       res.status(200).json({ message: 'OK' })
