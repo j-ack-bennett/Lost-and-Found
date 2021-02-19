@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import { saveLost } from '../actions/lost'
 
 import LostPets from "./LostPets"
+
 import { checkAuth } from '../actions/auth'
 
 function LostPet (props) {

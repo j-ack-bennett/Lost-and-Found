@@ -12,7 +12,6 @@ function LostPets(props) {
     props.dispatch(fetchLost())   
   }, []);
   
-
   useEffect(() => {
     setFilterLost (props.lostPets)
   }, [props.lostPets])
