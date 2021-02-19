@@ -36,13 +36,15 @@ function FoundPet (props) {
     e.preventDefault()
     props.dispatch(saveFound(formData))
     e.target.reset()
+    alert('Found Animal Submitted Successfully')
   }
 
   return (
     <>
-      {auth.isAuthenticated && 
+    {auth.isAuthenticated && 
+    <div className= "lost-form"> 
     <form className="Register form box" onSubmit={handleSubmit}>
-      <h1 className="title is-2">Please submit a photo of the cat or dog you have found</h1>
+      <h1 className="title-is-2">Please submit a photo of the cat or dog you have found</h1>
       <hr /> 
       <div className="columns">
         <label className="column is-6 label is-large has-text-centered">Species
@@ -56,6 +58,7 @@ function FoundPet (props) {
       
       <input className="button is-success is-large is-fullwidth" value="Found" type="submit" />
     </form>
+    </div>
     }
 
       <div>
