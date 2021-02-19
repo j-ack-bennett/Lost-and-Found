@@ -37,7 +37,7 @@ function LostPets(props) {
       <button onClick={() => clickHandler("cat")}>Cats</button>
       <button onClick={() => clickHandler("dog")}>Dogs</button>
       <button onClick={() => clickHandler("")}>All</button>
-
+      {console.log(filterLost)}
       {filterLost.map(animal => (
         <div key={animal.id}>
 
@@ -60,8 +60,9 @@ function LostPets(props) {
 
 const mapStateToProps = (globalState) => {
   return {
-    lostPets: globalState.lostPets,
-    auth: globalState.auth
+    auth: globalState.auth,
+    lostPets: globalState.lostPets
+    
   }
 }
 
