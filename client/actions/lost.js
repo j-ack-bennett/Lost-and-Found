@@ -31,7 +31,8 @@ export function saveLost (lost) {
   return dispatch => {
     return addLost(lost)
     .then(() => {
-      dispatch(addNewLost(lost))
+      // dispatch(addNewLost(lost))
+      dispatch(fetchLost())
       return null
     })
   }

@@ -35,9 +35,9 @@ function LostPet (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.dispatch(saveLost(formData))
+    props.dispatch(saveLost(formData)) 
+    alert("Your pet was added")
     e.target.reset()
-    alert('Lost Animal Submitted Successfully')
   }
 
   return (

@@ -55,7 +55,7 @@ function Register (props) {
           <input required className="input is-large has-text-centered is-fullwidth" placeholder="Contact Details" type="text" name="contact_details" onChange={handleChange} value={formData.contact_details}/>
         </label>
         <label className="column is-6 label is-large has-text-centered">Email Address
-          <input required className="input is-large has-text-centered is-fullwidth" placeholder="Email Adress" type="text" name="email_address" onChange={handleChange} value={formData.email_address}/>
+          <input required className="input is-large has-text-centered is-fullwidth" placeholder="Email Adress" type="email" name="email_address" onChange={handleChange} value={formData.email_address}/>
         </label>
       </div>
       <br />
