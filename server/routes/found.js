@@ -6,7 +6,7 @@ const db = require('../db/found')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  db.getFound()
+  db.getFoundPetsAndUsers()
     .then(animals => {
       res.json({ animals })
     })

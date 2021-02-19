@@ -33,19 +33,17 @@ function App (props) {
         </div>
 
         <div className=''>
+          <Route exact path="/" component={LostForm} />
           {!auth.isAuthenticated &&  
           <>
-          <Route exact path="/" component={LostPets} />
           <Route path="/register" component={Register}/>
           </>
           }
         
         </div>
           <Route path="/login" component={Login} />
-        <>
           <Route path="/Found" exact component={FoundForm}/>
           <Route path="/Lost" exact component={LostForm}/>
-        </>
       </div>
     </Router>
   )

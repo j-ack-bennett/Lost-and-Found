@@ -14,12 +14,25 @@ body {
 //   padding: 25px;
 // }
 
+.chicken-farm {
+display:flex;
+flex-direction:column;
+align-items: center;
+justify-content: center;
+}
+
 .title-is-2 {
 font-size: 30px;
 font-family: 'Lexend Mega', sans-serif;
 color:red;
 font-weight: bold;
 }
+.foundPetImg {
+  border: 20px solid darkgoldenrod;
+  height: auto;
+  width: 700px;
+  padding:25px;
+   }
 
 .lostPetImg {
   border: 20px solid darkgoldenrod;
@@ -28,15 +41,36 @@ height: auto;
   padding:25px;
  }
 
+h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 60px;
+  color: black;
+  text-decoration: underline;
+  text-align: center;
+}
+
+
 h3 {
-  font-size: 50px;
+  font-size: 75px;
   font-weight:bold;
   color:black;
-  padding: 10px;
+  padding: 2px;
   font-family: 'Reggae One', cursive;
   margin-top: 5px;
-  margin-bottom: 100px;
- 
+  margin-bottom:20px;
+  text-align: center;
+}
+
+h4 {
+  margin-bottom: 10px;
+  text-align: center;
+  color:black;
+  font-family: 'Fredoka One', cursive;
+}
+
+.profiles {
+  margin-bottom: 45px;
+  font-size: 25px;
 }
  
 .lost-form {

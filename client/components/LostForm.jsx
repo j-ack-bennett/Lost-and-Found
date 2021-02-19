@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import { saveLost } from '../actions/lost'
 
 import LostPets from "./LostPets"
+
 import { checkAuth } from '../actions/auth'
 
 function LostPet (props) {
@@ -37,19 +38,18 @@ function LostPet (props) {
     props.dispatch(saveLost(formData)) 
     alert("Your pet was added")
     e.target.reset()
-   
   }
 
   return (
-    <>
-    <div className= "lost-form"> 
+    <div className='chicken-farm'>
     {auth.isAuthenticated &&
+    <div className= "lost-form"> 
     <form className="Register-form-box" onSubmit={handleSubmit}>
       <h1 className="title-is-2">Please submit a photo of the cat or dog you have lost</h1>
       <hr />
       {props.auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
-      
       <div className="columns">
+      
         <label className="column is-6 label is-large has-text-centered">Name
           <input required className="input is-large has-text-centered is-fullwidth" placeholder="Name" onChange={(e) => handleChange(e)} type="text" name="name" />
         </label>
@@ -61,17 +61,18 @@ function LostPet (props) {
         <label className="column is-6 label is-large has-text-centered">URL for a photo
           <input required className="input is-large has-text-centered is-fullwidth" placeholder="URL for a photo" onChange={(e) => handleChange(e)} type="text" name="photo" />
         </label>
-        </div>
+    </div>
+
       <br />
       <input className="button is-success is-large is-fullwidth" value="Lost" type="submit" />
     </form>
-    }
     </div>
+    }
 
       <div>
           <LostPets />
       </div>
-    </>
+    </div>
   )
 }
 

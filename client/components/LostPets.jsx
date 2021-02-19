@@ -12,7 +12,6 @@ function LostPets(props) {
     props.dispatch(fetchLost())   
   }, []);
   
-
   useEffect(() => {
     setFilterLost (props.lostPets)
   }, [props.lostPets])
@@ -46,10 +45,11 @@ function LostPets(props) {
             <h3>{animal.name}</h3>
 
             {auth.isAuthenticated &&
-              <div>
-                <h3>{animal.username}</h3>
-                <h3>{animal.email_address}</h3>
-                <h3>{animal.contact_details}</h3>
+              <div className="profiles">
+                <h2>Contact Information</h2>
+                <h4>Name: {animal.username}</h4>
+                <h4>Email: {animal.email_address}</h4>
+                <h4>Contact details: {animal.contact_details}</h4>
               </div>}
           </div>
         </div>
