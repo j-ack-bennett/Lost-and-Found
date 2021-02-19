@@ -40,7 +40,7 @@ function FoundPet (props) {
   }
 
   return (
-    <>
+    <div className='chicken-farm'>
     {auth.isAuthenticated && 
     <div className= "lost-form"> 
     <form className="Register form box" onSubmit={handleSubmit}>
@@ -64,7 +64,8 @@ function FoundPet (props) {
       <div>
           <FoundPets />
       </div>
-    </>
+    
+    </div>
   )
 }
 
