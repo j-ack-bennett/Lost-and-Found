@@ -1,13 +1,12 @@
 # Lost and Found
 
-## Week 7 Large group project
+## Enspiral Dev Academy Large Group Project
 
 The focus of this app is to practice using the Full Stack we teach, (with auth) in a large scale app.
 
 The idea of the app is to create a "billboard" style site for people to post about their animals that have gone missing, and for people who have found stray animals to post about them.
 
-The hope is that within a small community this could be a great go to for making sure those run-away floofs make it home safely.
-
+The hope is that within a small community this could be a great go to for making sure those run-away floofs make it home safely
 
 ## The Tech
 
@@ -19,10 +18,6 @@ A Boilerplate is already set up for you (Thanks Harrison!) with everything you w
 * [Knex.js (SQL)](https://knexjs.org/)
 * [Bulma (CSS framework)](https://bulma.io/documentation/)
 * [JWT Auth (Local)](https://jwt.io/)
-
-The Migration and seeds for the users table, and all login functionality is already set up!
-
-The mobile responsiveness is also being handled by some neat JS and Bulma classes, be sure to incorporate that view in your project goals!
 
 ## User Stories
 
@@ -94,7 +89,7 @@ As a registered user:
 | Post | /api/found | Yes | Add a Found pet to the db | The Pet that was added (as an object) |
 
 ## DB (Server Side) -
-  There should be three tables for MVP. You may want/need to add additional columns or tables.
+  There should be three tables for MVP.
 
 ### Lost
   | Column Name | Data Type | Purpose |
@@ -148,48 +143,3 @@ To run in production:
 ```sh
 npm start
 ```
-
-
-## Heroku!!!
-
-### Creating your app
-
-Create your app with `heroku create [name]`
-
-You can check that this was successful by running `heroku apps` to view a list of your apps
-
-
-### Adding postgres
-
-Add postgresql (hobby dev) to your app at `https://dashboard.heroku.com/apps/[APP NAME HERE]/resources`
-
-Check that pg has been added by running `heroku addons` to ensure the postgresql db is on your app
-
-
-### Deploying!
-
-I have created several npm scripts that will be useful for deploying your app to heroku easily.
-
-To push your local master branch to your heroku app:
-```sh
-npm run h:deploy
-```
-
-Run heroku migrations:
-```sh
-npm run h:migrate
-```
-
-Run heroku seeds:
-```sh
-npm run h:seed
-```
-
-If ever you need to rollback, you can also:
-```sh
-npm run h:rollback
-```
-
-
-### Ta-Da!
-Your app should be deployed!
